@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Portfolio — Home</title>
+<meta name="description" content="3D 오브젝트로 소개하는 개인 포트폴리오 사이트." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body data-page="home">
+<a href="#main" class="skip-link">본문 바로가기</a>
+
+<header class="nav">
+  <a href="index.html" class="nav-logo">YOUR NAME</a>
+  <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="nav-menu" aria-label="주요 메뉴">
+    <a href="index.html" data-page="home">Home</a>
+    <a href="work.html" data-page="work">Work</a>
+    <a href="about.html" data-page="about">About</a>
+  </nav>
+</header>
+<div class="nav-backdrop"></div>
+
+<main id="main">
+  <section class="hero">
+    <canvas id="scene-canvas" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-title">YOUR NAME</h1>
+      <p class="hero-subtitle">Designer & Developer — 무언가를 만드는 사람</p>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Selected Work</h2>
+    <div class="work-grid">
+      <a class="work-card" href="work.html">
+        <div class="work-card-overlay"></div>
+        <span class="work-card-label">Project 01</span>
+      </a>
+      <a class="work-card" href="work.html">
+        <div class="work-card-overlay"></div>
+        <span class="work-card-label">Project 02</span>
+      </a>
+      <a class="work-card" href="work.html">
+        <div class="work-card-overlay"></div>
+        <span class="work-card-label">Project 03</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">© 2027 YOUR NAME. All rights reserved.</footer>
+
+<script type="module" src="js/scene.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>
