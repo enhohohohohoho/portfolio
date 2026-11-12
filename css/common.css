@@ -1,0 +1,118 @@
+/* ===== 공통: 색, 폰트, 메뉴 버튼 ===== */
+:root {
+  --navy: #07073a;
+  --red: #e8141e;
+  --sub-bg: #fff77a;
+  --sub-text: #666;
+
+  /* 버튼 크기 (페이지별로 덮어씀) */
+  --btn-w: 92px;
+  --btn-h: 29px;
+  --btn-font: 15px;
+  --sub-h: 20px;
+  --sub-font: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  font-family: "Ubuntu", "Trebuchet MS", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ----- 메뉴 버튼 ----- */
+.menu-item {
+  position: relative;
+  width: var(--btn-w);
+}
+
+.menu-btn {
+  display: block;
+  width: 100%;
+  height: var(--btn-h);
+  padding: 0;
+  font: inherit;
+  font-size: var(--btn-font);
+  line-height: calc(var(--btn-h) - 2px);
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid #000;
+  /* 입체감 있는 남색 버튼 */
+  background: linear-gradient(to bottom, #12124e 0%, var(--navy) 55%, #02021f 100%);
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.28),
+    inset -3px -2px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* 호버된 버튼만 흰색 + 빨간 글씨
+   - 마우스: 호버 / 키보드 포커스
+   - 터치(폰): 탭하면 is-open (js/menu.js) */
+.menu-item.is-open .menu-btn {
+  color: var(--red);
+  border-color: #555;
+  background: linear-gradient(to bottom, #ffffff 0%, #f6f6f6 45%, #dcdcdc 100%);
+  box-shadow:
+    inset 2px 2px 0 #fff,
+    inset -4px -2px 0 rgba(0, 0, 0, 0.18);
+}
+
+@media (hover: hover) {
+  .menu-item:hover .menu-btn,
+  .menu-item:focus-within .menu-btn {
+    color: var(--red);
+    border-color: #555;
+    background: linear-gradient(to bottom, #ffffff 0%, #f6f6f6 45%, #dcdcdc 100%);
+    box-shadow:
+      inset 2px 2px 0 #fff,
+      inset -4px -2px 0 rgba(0, 0, 0, 0.18);
+  }
+}
+
+.menu-btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+/* ----- 하위 버튼 ----- */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  border: 1px solid #333;
+  border-top: none;
+}
+
+.menu-item.is-open .submenu { display: block; }
+
+@media (hover: hover) {
+  .menu-item:hover .submenu,
+  .menu-item:focus-within .submenu { display: block; }
+}
+
+.submenu li + li { border-top: 1px solid #b9b25a; }
+
+.submenu a {
+  display: block;
+  height: var(--sub-h);
+  line-height: var(--sub-h);
+  text-align: center;
+  font-size: var(--sub-font);
+  color: var(--sub-text);
+  text-decoration: none;
+  background: var(--sub-bg);
+}
+
+.submenu a:hover,
+.submenu a:focus-visible {
+  color: var(--red);
+  outline: none;
+}

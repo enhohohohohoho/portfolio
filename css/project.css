@@ -1,0 +1,160 @@
+/* ===== 작업 상세 페이지 — 왼쪽 정보 / 오른쪽 이미지 ===== */
+:root {
+  --bg: #000222;
+  --sidebar-w: 27%;
+}
+
+/* 섹션별 색 테마 */
+body.theme-work1 { --accent: #f2ff6e; --title-bg: #6b1a3d; }
+body.theme-work2 { --accent: #1cc8d6; --title-bg: #4a2c06; }
+
+body {
+  background: var(--bg);
+  color: var(--accent);
+}
+
+/* ----- 왼쪽 고정 영역 ----- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-w);
+  border-right: 3px solid #5a5a5a;
+}
+
+.back-btn {
+  position: absolute;
+  top: calc(10px + env(safe-area-inset-top, 0px));
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: #ddd;
+}
+
+.back-btn:hover,
+.back-btn:focus-visible { color: var(--accent); }
+.back-btn svg { width: 18px; height: 18px; }
+
+.project-info {
+  position: absolute;
+  left: 28px;
+  right: 14px;
+  bottom: 84px;
+}
+
+/* 제목 위 작은 점 */
+.project-info::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  margin: 0 0 6px 10px;
+  background: var(--accent);
+}
+
+.project-title,
+.project-year {
+  display: table;
+  margin: 0 0 6px;
+  padding: 1px 20px 1px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  background: var(--title-bg);
+}
+
+.project-year { padding-right: 10px; }
+
+/* 펼침 버튼 (설명 열고 닫기) */
+.toggle-btn {
+  position: absolute;
+  right: 6px;
+  bottom: -20px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-btn svg { width: 16px; height: 16px; transition: transform 0.2s; }
+.toggle-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+.project-desc {
+  margin: 10px 30px 0 10px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.project-desc p { margin: 0 0 0.8em; }
+
+/* ----- 오른쪽 이미지 영역 (스크롤) ----- */
+.gallery {
+  margin-left: calc(var(--sidebar-w) + 10px);
+  margin-right: 44px;
+  padding: 33px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* 이미지 자리 (흰 박스). 실제 <img>를 넣으면 원본 비율대로 표시 */
+.gallery-item {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1005 / 567;
+  background: #fff;
+}
+
+img.gallery-item { aspect-ratio: auto; height: auto; }
+
+/* ===== 반응형 ===== */
+
+/* 태블릿 */
+@media (max-width: 1024px) {
+  :root { --sidebar-w: 32%; }
+  .gallery { margin-right: 20px; }
+  .project-title, .project-year { font-size: 18px; }
+}
+
+/* 모바일: 정보 영역을 위에, 이미지를 아래로 쌓기 */
+@media (max-width: 640px) {
+  .sidebar {
+    position: relative;
+    width: auto;
+    min-height: 200px;
+    padding: calc(60px + env(safe-area-inset-top, 0px)) 16px 24px;
+    border-right: none;
+    border-bottom: 3px solid #5a5a5a;
+  }
+
+  .back-btn { left: 8px; }
+
+  .project-info {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    padding-right: 36px;
+  }
+
+  .project-title, .project-year { font-size: 18px; }
+
+  .toggle-btn { right: -6px; bottom: -6px; }
+
+  .gallery {
+    margin: 0 16px;
+    padding: 16px 0 calc(32px + env(safe-area-inset-bottom, 0px));
+    gap: 8px;
+  }
+}

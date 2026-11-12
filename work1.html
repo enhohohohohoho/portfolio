@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Work 1 — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/page.css" />
+</head>
+<body class="theme-work1">
+
+<!-- ===== 상단 메뉴 (모든 서브 페이지 공통 — 다른 페이지에도 그대로 복사) ===== -->
+<header class="topnav">
+  <div class="menu-item">
+    <a class="menu-btn" href="index.html">HOME</a>
+  </div>
+
+  <nav class="topnav-right" aria-label="주요 메뉴">
+    <div class="menu-item">
+      <button class="menu-btn" type="button">WORK</button>
+      <ul class="submenu">
+        <li><a href="work1.html">1</a></li>
+        <li><a href="work2.html">2</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-item">
+      <button class="menu-btn" type="button">OTHER</button>
+      <ul class="submenu">
+        <li><a href="https://2025.nicecream.workers.dev/" target="_blank" rel="noopener">2025</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-item">
+      <button class="menu-btn" type="button">ABOUT</button>
+      <ul class="submenu">
+        <li><a href="about.html">me</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== 작업 목록 =====
+     썸네일: <span class="work-entry-thumb"></span> 을 <img class="work-entry-thumb" src="assets/..." alt="..." /> 로 바꾸면 됩니다 -->
+<main class="work-list">
+  <a class="work-entry" href="work1-01.html">
+    <span class="work-entry-label">[01]</span>
+    <span class="work-entry-thumb"></span>
+  </a>
+
+  <a class="work-entry" href="work1-02.html">
+    <span class="work-entry-label">[02]</span>
+    <span class="work-entry-thumb"></span>
+  </a>
+</main>
+
+<img class="corner-character" src="assets/character.png" alt="" onerror="this.style.visibility='hidden'" />
+
+<script src="js/menu.js"></script>
+
+</body>
+</html>

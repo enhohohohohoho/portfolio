@@ -1,0 +1,148 @@
+/* ===== 서브 페이지 (WORK 1, WORK 2 등) — 상단 메뉴 + 작업 썸네일 ===== */
+:root {
+  /* 서브 페이지는 버튼이 메인보다 조금 작음 */
+  --btn-w: 80px;
+  --btn-h: 25px;
+  --btn-font: 14px;
+  --sub-h: 17px;
+  --sub-font: 12px;
+}
+
+/* 페이지별 배경색 */
+body.theme-work1 { --bg: #e8ff6e; }
+body.theme-work2 { --bg: #00a3b3; }
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ----- 상단 메뉴 (모든 서브 페이지 공통) ----- */
+.topnav {
+  position: fixed;
+  top: calc(14px + env(safe-area-inset-top, 0px));
+  left: 35px;
+  right: 37px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.topnav-right {
+  display: flex;
+  gap: 37px;
+}
+
+/* ----- 왼쪽 아래 캐릭터 ----- */
+.corner-character {
+  position: fixed;
+  left: 35px;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* ----- 작업 썸네일 공통 ----- */
+.work-entry {
+  display: block;
+  text-decoration: none;
+}
+
+.work-entry-label {
+  display: block;
+  margin: 0 0 7px 8px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--red);
+}
+
+/* 썸네일 (지금은 흰 박스, 나중에 <img>로 교체) */
+.work-entry-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 555 / 313;
+  object-fit: cover;
+  background: #fff;
+  border: 1px solid #333;
+}
+
+.work-entry:hover .work-entry-thumb,
+.work-entry:focus-visible .work-entry-thumb {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.work-entry:focus-visible { outline: none; }
+
+/* ----- WORK 1: 오른쪽 한 줄 목록 ----- */
+.work-list {
+  display: flex;
+  flex-direction: column;
+  gap: 58px;
+  margin-left: 46.2%;
+  width: 38%;
+  padding: 183px 0 120px;
+}
+
+/* ----- WORK 2: 가운데 2열 그리드 ----- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 8.9%;
+  row-gap: 58px;
+  width: 68.2%;
+  margin: 0 auto;
+  padding: 183px 0 120px;
+}
+
+.work-grid .work-entry-thumb { aspect-ratio: 432 / 313; }
+
+/* ===== 반응형 ===== */
+
+/* 태블릿 */
+@media (max-width: 1024px) {
+  .topnav { left: 24px; right: 24px; }
+  .topnav-right { gap: 16px; }
+
+  .work-list { margin-left: auto; margin-right: 6%; width: 52%; padding-top: 140px; }
+  .work-grid { width: auto; margin: 0 6%; column-gap: 32px; padding-top: 140px; }
+}
+
+/* 모바일 */
+@media (max-width: 640px) {
+  :root {
+    --btn-w: 72px;
+    --btn-h: 26px;
+    --btn-font: 13px;
+    --sub-h: 30px;   /* 손가락으로 누르기 쉽게 */
+    --sub-font: 13px;
+  }
+
+  .topnav { left: 16px; right: 16px; }
+  .topnav-right { gap: 6px; }
+
+  .work-list,
+  .work-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: auto;
+    margin: 0 16px;
+    padding: 90px 0 100px;
+  }
+
+  .corner-character { left: 16px; width: 40px; height: 40px; }
+}
+
+/* 아주 좁은 폰 */
+@media (max-width: 360px) {
+  :root { --btn-w: 64px; --btn-font: 12px; }
+  .topnav { left: 12px; right: 12px; }
+  .topnav-right { gap: 4px; }
+}

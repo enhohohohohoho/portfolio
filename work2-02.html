@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Work 2-02 — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/project.css" />
+</head>
+<body class="theme-work2">
+
+<!-- ===== 왼쪽: 뒤로가기 + 작품 정보 ===== -->
+<aside class="sidebar">
+  <a class="back-btn" href="work2.html" aria-label="뒤로가기"
+     onclick="if (document.referrer && history.length > 1) { history.back(); return false; }">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4M10 6l-6 6 6 6"/></svg>
+  </a>
+
+  <div class="project-info">
+    <h1 class="project-title">작품 제목 2-02</h1>
+    <p class="project-year">2025</p>
+
+    <button class="toggle-btn" type="button" aria-expanded="false" aria-controls="desc" aria-label="설명 펼치기"
+            onclick="const open = this.getAttribute('aria-expanded') === 'true'; this.setAttribute('aria-expanded', !open); document.getElementById('desc').hidden = open;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"/></svg>
+    </button>
+
+    <div class="project-desc" id="desc" hidden>
+      <p>작품 설명을 여기에 적어주세요.</p>
+    </div>
+  </div>
+</aside>
+
+<!-- ===== 오른쪽: 이미지 (스크롤) =====
+     흰 박스 <div class="gallery-item"></div> 를 <img class="gallery-item" src="assets/..." alt="..." /> 로 바꾸면 됩니다 -->
+<main class="gallery">
+  <div class="gallery-item"></div>
+  <div class="gallery-item"></div>
+  <div class="gallery-item"></div>
+</main>
+
+</body>
+</html>

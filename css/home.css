@@ -1,27 +1,9 @@
-/* ===== 메인 페이지 ===== */
-:root {
-  --bg: #b5c20f;
-  --navy: #07073a;
-  --red: #e8141e;
-  --sub-bg: #fff77a;
-  --sub-text: #666;
-  --btn-w: 92px;
-  --btn-h: 29px;
-  --gap: 9px;
-}
-
-* { box-sizing: border-box; }
+/* ===== 메인 페이지 (공통 스타일은 common.css) ===== */
+:root { --bg: #b5c20f; }
 
 html, body {
-  margin: 0;
   height: 100%;
   background: var(--bg);
-}
-
-body {
-  font-family: "Ubuntu", "Trebuchet MS", sans-serif;
-  font-style: italic;
-  font-weight: 500;
 }
 
 .home {
@@ -48,91 +30,27 @@ body {
   object-fit: contain;
 }
 
-/* 이미지 파일이 없을 때 깨진 아이콘 대신 빈 칸 유지 */
-.character-img:not([src]),
-.character-img[src=""] { visibility: hidden; }
-
 .character-hover { opacity: 0; }
 
-/* 어떤 버튼이든 호버/포커스되면 캐릭터 이미지 교체 */
-.home:has(.menu-item:hover, .menu-item:focus-within) .character-default { opacity: 0; }
-.home:has(.menu-item:hover, .menu-item:focus-within) .character-hover { opacity: 1; }
+/* 어떤 버튼이든 호버/포커스(폰은 탭)되면 캐릭터 이미지 교체 */
+.home:has(.menu-item.is-open) .character-default { opacity: 0; }
+.home:has(.menu-item.is-open) .character-hover { opacity: 1; }
+
+@media (hover: hover) {
+  .home:has(.menu-item:hover, .menu-item:focus-within) .character-default { opacity: 0; }
+  .home:has(.menu-item:hover, .menu-item:focus-within) .character-hover { opacity: 1; }
+}
 
 /* ----- 메뉴 ----- */
 .menu {
   display: flex;
-  gap: var(--gap);
+  gap: 9px;
   margin-left: 10px; /* 시안 기준 살짝 오른쪽 */
 }
 
-.menu-item {
-  position: relative;
-  width: var(--btn-w);
-}
-
-.menu-btn {
-  display: block;
-  width: 100%;
-  height: var(--btn-h);
-  padding: 0;
-  font: inherit;
-  font-size: 15px;
-  letter-spacing: 0.02em;
-  color: #fff;
-  cursor: pointer;
-  border: 1px solid #000;
-  /* 입체감 있는 남색 버튼 */
-  background: linear-gradient(to bottom, #12124e 0%, var(--navy) 55%, #02021f 100%);
-  box-shadow:
-    inset 2px 2px 0 rgba(255, 255, 255, 0.28),
-    inset -3px -2px 0 rgba(0, 0, 0, 0.6);
-}
-
-/* 호버된 버튼만 흰색 + 빨간 글씨 */
-.menu-item:hover .menu-btn,
-.menu-item:focus-within .menu-btn {
-  color: var(--red);
-  border-color: #555;
-  background: linear-gradient(to bottom, #ffffff 0%, #f6f6f6 45%, #dcdcdc 100%);
-  box-shadow:
-    inset 2px 2px 0 #fff,
-    inset -4px -2px 0 rgba(0, 0, 0, 0.18);
-}
-
-.menu-btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
-
-/* ----- 하위 버튼 ----- */
-.submenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: none;
-  border: 1px solid #333;
-  border-top: none;
-}
-
-.menu-item:hover .submenu,
-.menu-item:focus-within .submenu { display: block; }
-
-.submenu li + li { border-top: 1px solid #b9b25a; }
-
-.submenu a {
-  display: block;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: var(--sub-text);
-  text-decoration: none;
-  background: var(--sub-bg);
-}
-
-.submenu a:hover,
-.submenu a:focus-visible {
-  color: var(--red);
-  outline: none;
+/* 모바일: 하위 버튼을 손가락으로 누르기 쉽게 */
+@media (max-width: 640px) {
+  :root { --sub-h: 30px; }
+  .home { padding-top: 22vh; padding-top: 22svh; }
+  .menu { margin-left: 0; }
 }
