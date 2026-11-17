@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Other 2025 — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Arvo:wght@700&family=Questrial&family=Noto+Sans+KR:wght@300;500&family=Ubuntu:ital,wght@0,400;0,700;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/page.css" />
+<link rel="stylesheet" href="css/other.css" />
+</head>
+<body class="theme-other">
+
+<!-- ===== 상단 메뉴 (모든 서브 페이지 공통) ===== -->
+<header class="topnav">
+  <div class="menu-item">
+    <a class="menu-btn" href="index.html">HOME</a>
+  </div>
+
+  <nav class="topnav-right" aria-label="주요 메뉴">
+    <div class="menu-item">
+      <button class="menu-btn" type="button">WORK</button>
+      <ul class="submenu">
+        <li><a href="work1.html">1</a></li>
+        <li><a href="work2.html">2</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-item">
+      <button class="menu-btn" type="button">OTHER</button>
+      <ul class="submenu">
+        <li><a href="other.html">2025</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-item">
+      <button class="menu-btn" type="button">ABOUT</button>
+      <ul class="submenu">
+        <li><a href="about.html">me</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- 바닥 (책상 면) -->
+<div class="floor" aria-hidden="true"></div>
+
+<main class="other">
+
+  <!-- ===== 모니터 + 사이트 영상 ===== -->
+  <section class="monitor-area" aria-label="사이트 영상">
+    <div class="monitor">
+      <!-- 받침대 그림자 -->
+      <span class="monitor-shadow" aria-hidden="true"></span>
+      <!-- 모니터 이미지 (2000 × 1509, 화면 흰 부분 위에 영상이 올라감) -->
+      <img class="monitor-img" src="assets/other/monitor.webp" alt="" width="2000" height="1509" />
+
+      <!-- 화면 (영상 자리) -->
+      <div class="monitor-screen">
+        <!-- 영상 파일: assets/other/site-01.mp4 ~ site-07.mp4 (목록은 js/other.js) -->
+        <video id="siteVideo" muted loop playsinline autoplay preload="metadata"></video>
+        <span class="screen-placeholder" id="screenPlaceholder">01 / 07</span>
+      </div>
+
+      <!-- 영상 개수와 순서 표시 -->
+      <div class="dots" id="dots" role="tablist" aria-label="영상 선택"></div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="pill-btn pill-left" type="button" id="prevBtn" aria-label="이전 영상">LEFT</button>
+      <button class="pill-btn pill-right" type="button" id="nextBtn" aria-label="다음 영상">RIGHT</button>
+    </div>
+  </section>
+
+  <!-- ===== 소개 글 ===== -->
+  <section class="intro">
+    <!-- 하트 이미지 -->
+    <img class="intro-heart" src="assets/other/heart.webp" alt="" width="814" height="893" />
+
+    <img class="intro-smiley" src="assets/other/Square.webp" alt="" width="1000" height="1000" />
+
+    <div class="intro-en" lang="en">
+      <p>A <b>personal archive website</b> created to preserve<br class="br-wide" /> memories of <b>my 2025 trip to the United States.</b></p>
+      <p>I brought moments from the journey together in a digital space through photos and videos.</p>
+      <p>The website was built using vibe coding.</p>
+    </div>
+
+    <a class="site-link" href="https://2025.nicecream.workers.dev/" target="_blank" rel="noopener" aria-label="2025.com (새 창에서 열림)">
+      <span class="site-link-inner">
+        <span class="site-link-text">2025.com<svg class="site-link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path class="arrow-line" d="M4.5 15.5 L12 8" /><path class="arrow-head" d="M8 4 L16 4 L16 12 Z" /></svg></span>
+      </span>
+    </a>
+
+    <div class="intro-ko">
+      <p><b>2025년 미국 여행의 추억</b>을 보관하기 위해 제작한 <b>개인 아카이브 사이트</b>입니다. 사진과 영상을 통해 여행의 순간들을 하나의 디지털 공간에 모아 담았습니다.</p>
+      <p>바이브 코딩을 활용해 제작했습니다.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/menu.js"></script>
+<script src="js/other.js"></script>
+</body>
+</html>

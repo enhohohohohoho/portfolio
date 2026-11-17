@@ -44,10 +44,12 @@ body {
   cursor: pointer;
   border: 1px solid #000;
   /* 입체감 있는 남색 버튼 */
-  background: linear-gradient(to bottom, #12124e 0%, var(--navy) 55%, #02021f 100%);
+  background: linear-gradient(to bottom, #15155a 0%, #0b0b45 40%, var(--navy) 70%, #04042a 100%);
+  /* 부드러운 경사·엠보스: 번지는(blur) 하이라이트와 그림자 */
   box-shadow:
-    inset 2px 2px 0 rgba(255, 255, 255, 0.28),
-    inset -3px -2px 0 rgba(0, 0, 0, 0.6);
+    inset 1px 1px 3px rgba(255, 255, 255, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.10),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.55);
 }
 
 /* 호버된 버튼만 흰색 + 빨간 글씨
@@ -56,10 +58,10 @@ body {
 .menu-item.is-open .menu-btn {
   color: var(--red);
   border-color: #555;
-  background: linear-gradient(to bottom, #ffffff 0%, #f6f6f6 45%, #dcdcdc 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 50%, #e6e6e6 100%);
   box-shadow:
-    inset 2px 2px 0 #fff,
-    inset -4px -2px 0 rgba(0, 0, 0, 0.18);
+    inset 1px 1px 3px #fff,
+    inset -2px -2px 6px rgba(0, 0, 0, 0.16);
 }
 
 @media (hover: hover) {
@@ -67,10 +69,10 @@ body {
   .menu-item:focus-within .menu-btn {
     color: var(--red);
     border-color: #555;
-    background: linear-gradient(to bottom, #ffffff 0%, #f6f6f6 45%, #dcdcdc 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #f7f7f7 50%, #e6e6e6 100%);
     box-shadow:
-      inset 2px 2px 0 #fff,
-      inset -4px -2px 0 rgba(0, 0, 0, 0.18);
+      inset 1px 1px 3px #fff,
+      inset -2px -2px 6px rgba(0, 0, 0, 0.16);
   }
 }
 

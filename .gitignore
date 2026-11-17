@@ -3,3 +3,8 @@ node_modules/
 *.log
 Icon
 Icon?
+
+# 디자인 원본 (포토샵 등) — git·배포 제외
+_source/
+*.psd
+*.psb
