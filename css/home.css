@@ -41,24 +41,6 @@ html, body {
   .home:has(.menu-item:hover, .menu-item:focus-within) .character-hover { opacity: 1; }
 }
 
-/* ----- 눈 깜빡임: 4초마다 두 번 깜빡 (눈 감은 이미지를 잠깐씩 보여줌) ----- */
-.character-blink {
-  opacity: 0;
-  animation: blink 4s step-end infinite;
-}
-
-@keyframes blink {
-  0%   { opacity: 0; }
-  90%  { opacity: 1; }   /* 감기 */
-  92%  { opacity: 0; }   /* 뜨기 */
-  95%  { opacity: 1; }   /* 한 번 더 */
-  97%  { opacity: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .character-blink { animation: none; }
-}
-
 /* ----- 캐릭터 점프: 일정 시간마다 천천히 한 번씩 -----
    한 주기 7초 = 점프(2초) + 쉬는 시간(5초)
    웅크림 → 위로 점프(살짝 늘어남) → 착지(찌그러짐) → 원래대로 */

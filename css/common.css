@@ -76,7 +76,9 @@ body {
   }
 }
 
-.menu-btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+/* Tab 키로 선택했을 때: 바깥 빨간 라인 대신 버튼 테두리만 빨간색 */
+.menu-btn:focus { outline: none; }
+.menu-item .menu-btn:focus-visible { border-color: var(--red); }
 
 /* ----- 하위 버튼 ----- */
 .submenu {
@@ -118,3 +120,24 @@ body {
   color: var(--red);
   outline: none;
 }
+
+/* ===== 캐릭터 공통 (메인 · WORK 페이지) ===== */
+
+/* ----- 눈 깜빡임: 4초마다 두 번 깜빡 (눈 감은 이미지를 잠깐씩 보여줌) ----- */
+.character-blink {
+  opacity: 0;
+  animation: blink 4s step-end infinite;
+}
+
+@keyframes blink {
+  0%   { opacity: 0; }
+  90%  { opacity: 1; }   /* 감기 */
+  92%  { opacity: 0; }   /* 뜨기 */
+  95%  { opacity: 1; }   /* 한 번 더 */
+  97%  { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-blink { animation: none; }
+}
+

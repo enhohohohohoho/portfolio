@@ -42,8 +42,34 @@ body {
   bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   width: 50px;
   height: 50px;
-  object-fit: contain;
   pointer-events: none;
+  transform-origin: 50% 100%;
+  /* 점프: 한 주기 9초 = 점프(2초) + 쉬는 시간(7초) */
+  animation: corner-jump 9s ease-in-out 2s infinite;
+}
+
+.corner-character img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 메인 캐릭터와 같은 동작, 점프 높이는 캐릭터 높이의 약 55% */
+@keyframes corner-jump {
+  0%     { transform: translateY(0)    scale(1, 1); }
+  2.47%  { transform: translateY(0)    scale(1.06, 0.91); }  /* 웅크리기 */
+  7.41%  { transform: translateY(-47.5%) scale(0.96, 1.05); }  /* 점프 */
+  11.36% { transform: translateY(-55%) scale(1, 1); }        /* 꼭대기 */
+  16.29% { transform: translateY(0)    scale(1.07, 0.9); }   /* 착지 */
+  19.75% { transform: translateY(0)    scale(0.98, 1.02); }
+  22.22% { transform: translateY(0)    scale(1, 1); }        /* 2초에 점프 끝 */
+  100%   { transform: translateY(0)    scale(1, 1); }        /* 쉬기 */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .corner-character { animation: none; }
 }
 
 /* ----- 작업 썸네일 공통 ----- */
@@ -72,10 +98,12 @@ body {
   border: 1px solid #333;
 }
 
+/* 호버: 상자 테두리만 빨간색으로 */
+.work-entry-thumb { transition: border-color 0.15s; }
+
 .work-entry:hover .work-entry-thumb,
 .work-entry:focus-visible .work-entry-thumb {
-  outline: 2px solid var(--red);
-  outline-offset: 2px;
+  border-color: var(--red);
 }
 
 .work-entry:focus-visible { outline: none; }
