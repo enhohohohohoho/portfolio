@@ -41,16 +41,56 @@ html, body {
   .home:has(.menu-item:hover, .menu-item:focus-within) .character-hover { opacity: 1; }
 }
 
+/* ----- 눈 깜빡임: 4초마다 두 번 깜빡 (눈 감은 이미지를 잠깐씩 보여줌) ----- */
+.character-blink {
+  opacity: 0;
+  animation: blink 4s step-end infinite;
+}
+
+@keyframes blink {
+  0%   { opacity: 0; }
+  90%  { opacity: 1; }   /* 감기 */
+  92%  { opacity: 0; }   /* 뜨기 */
+  95%  { opacity: 1; }   /* 한 번 더 */
+  97%  { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-blink { animation: none; }
+}
+
+/* ----- 캐릭터 점프: 일정 시간마다 천천히 한 번씩 -----
+   한 주기 7초 = 점프(2초) + 쉬는 시간(5초)
+   웅크림 → 위로 점프(살짝 늘어남) → 착지(찌그러짐) → 원래대로 */
+.character {
+  transform-origin: 50% 100%;
+  animation: char-jump 7s ease-in-out 1.5s infinite;
+}
+
+@keyframes char-jump {
+  0%     { transform: translateY(0)     scale(1, 1); }
+  3.17%  { transform: translateY(0)     scale(1.06, 0.91); }  /* 웅크리기 */
+  9.53%  { transform: translateY(-22px) scale(0.96, 1.05); }  /* 점프 */
+  14.6%  { transform: translateY(-26px) scale(1, 1); }        /* 꼭대기 */
+  20.95% { transform: translateY(0)     scale(1.07, 0.9); }   /* 착지 */
+  25.39% { transform: translateY(0)     scale(0.98, 1.02); }
+  28.57% { transform: translateY(0)     scale(1, 1); }  /* 2초에 점프 끝 */
+  100%   { transform: translateY(0)     scale(1, 1); }        /* 쉬기 */
+}
+
+/* 움직임 줄이기 설정한 사람은 점프 안 함 */
+@media (prefers-reduced-motion: reduce) {
+  .character { animation: none; }
+}
+
 /* ----- 메뉴 ----- */
 .menu {
   display: flex;
   gap: 9px;
-  margin-left: 10px; /* 시안 기준 살짝 오른쪽 */
 }
 
 /* 모바일: 하위 버튼을 손가락으로 누르기 쉽게 */
 @media (max-width: 640px) {
   :root { --sub-h: 30px; }
   .home { padding-top: 22vh; padding-top: 22svh; }
-  .menu { margin-left: 0; }
 }

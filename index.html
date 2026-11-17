@@ -13,10 +13,12 @@
 <body>
 
 <main class="home">
-  <!-- 캐릭터 이미지: assets/character.png (기본), assets/character-hover.png (버튼 호버 시) 에 파일을 넣으면 됩니다 -->
+  <!-- 캐릭터 이미지 (기본 / 버튼 호버 시). 호버용 이미지가 따로 생기면 두 번째 src만 바꾸면 됩니다 -->
   <div class="character">
-    <img class="character-img character-default" src="assets/character.png" alt="" onerror="this.style.visibility='hidden'" />
-    <img class="character-img character-hover" src="assets/character-hover.png" alt="" onerror="this.style.visibility='hidden'" />
+    <img class="character-img character-default" src="assets/main/ncerogo.webp" alt="" onerror="this.style.visibility='hidden'" />
+    <img class="character-img character-hover" src="assets/main/ncerogo.webp" alt="" onerror="this.style.visibility='hidden'" />
+    <!-- 눈 깜빡임: 잠깐씩 눈 감은 이미지로 바꿔 보여줌 -->
+    <img class="character-img character-blink" src="assets/main/ncerogo_closeeyes.webp" alt="" />
   </div>
 
   <nav class="menu" aria-label="주요 메뉴">
