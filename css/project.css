@@ -5,7 +5,7 @@
 }
 
 /* 섹션별 색 테마 */
-body.theme-work1 { --accent: #f2ff6e; --title-bg: #6b1a3d; }
+body.theme-work1 { --accent: #8fc5ff; --title-bg: #6b1a3d; }
 body.theme-work2 { --accent: #1cc8d6; --title-bg: #4a2c06; }
 
 body {
@@ -127,8 +127,8 @@ img.gallery-item { aspect-ratio: auto; height: auto; }
   .project-title, .project-year { font-size: 18px; }
 }
 
-/* 모바일: 정보 영역을 위에, 이미지를 아래로 쌓기 */
-@media (max-width: 640px) {
+/* 폰 + 태블릿 세로: 정보 영역을 위에, 이미지를 아래로 쌓기 */
+@media (max-width: 640px), (max-width: 1024px) and (orientation: portrait) {
   .sidebar {
     position: relative;
     width: auto;

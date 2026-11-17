@@ -6,7 +6,7 @@
 <title>Work 1 — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;600&family=IBM+Plex+Mono:wght@400;600&family=Ubuntu:ital,wght@0,400;1,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/page.css" />
 </head>
@@ -43,12 +43,21 @@
   </nav>
 </header>
 
+<!-- 썸네일 호버 시 화면 전체 배경 (제외 합성 2겹) -->
+<div class="hover-bg" aria-hidden="true"></div>
+<div class="hover-bg" aria-hidden="true"></div>
+
 <!-- ===== 작업 목록 =====
-     썸네일: <span class="work-entry-thumb"></span> 을 <img class="work-entry-thumb" src="assets/..." alt="..." /> 로 바꾸면 됩니다 -->
+     썸네일: [01] 처럼 <span class="work-entry-thumb"> 안에 <img> (+ 호버 영상 <video data-src>) 를 넣으면 됩니다
+     호버 배경 이미지: <a class="work-entry" data-bg="..."> -->
 <main class="work-list">
-  <a class="work-entry" href="work1-01.html">
-    <span class="work-entry-label">[01]</span>
-    <span class="work-entry-thumb"></span>
+  <a class="work-entry" href="work1-01.html" data-bg="assets/work/work1/header/01_header_background.webp">
+    <span class="work-entry-label">[01]<span class="work-entry-title">How Do I Kill a Mosquito,,,</span></span>
+    <span class="work-entry-thumb">
+      <img src="assets/work/work1/header/01_thumb.webp" alt="How Do I Kill A Mosquito,,," width="1200" height="675" loading="lazy" />
+      <!-- 호버할 때만 불러와서 재생 (소리 없음) -->
+      <video data-src="assets/work/work1/header/01_thumb.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+    </span>
   </a>
 
   <a class="work-entry" href="work1-02.html">
@@ -64,6 +73,7 @@
 </div>
 
 <script src="js/menu.js"></script>
+<script src="js/work-list.js"></script>
 
 </body>
 </html>
